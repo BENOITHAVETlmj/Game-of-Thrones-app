@@ -1,0 +1,23 @@
+.blankStateUl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%
+}
+
+ .blankStateLi {
+   display: flex;
+   justify-content: center;
+   list-style-type: none;
+   width: 80%;
+   padding: 16px;
+   margin-bottom: 8px;
+   border: 2px solid white;
+   border-radius: 6px;
+   cursor: pointer;
+   color: black;
+   background: white;
+   transform: scale(1.03);
+   font-weight: 700;
+ }

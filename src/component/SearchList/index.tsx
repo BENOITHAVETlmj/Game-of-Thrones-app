@@ -2,7 +2,6 @@ import List from "../../component/List";
 import SearchBar from "../../component/Search";
 import { useQuery } from "react-query";
 import { Page } from "../../App";
-import { useLocation } from "react-router";
 
 interface Props {
   page: Page;
@@ -10,23 +9,18 @@ interface Props {
 
 const SearchList: React.FC<Props> = ({page}) => {
   const { isLoading, error, data } = useQuery(`${page}`, () =>
-    fetch(`https://anapioficeandfire.com/api/${page}`).then((res) => res.json())
+  page === Page.Books ? fetch(`https://anapioficeandfire.com/api/${page}?pageSize=50`).then((res) => res.json())
+  : fetch(`https://anapioficeandfire.com/api/${page}?page=45&pageSize=50`).then((res) => res.json())
   );
 
-  const location = useLocation()
-
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>;
+  if (error || data.lenngth < 1) return <p>Could not find any resource that matches the request, try again</p>;
   console.log(data)
-
-
-  // TODO could be more generic :)
-  const typeList = location.pathname.includes("characters") ? Page.Characters : Page.Books
 
   return (
     <>
      <SearchBar onSearch={()=> console.log('log')} />
-     <List items={data} typeList={typeList}/>
+     <List items={data} />
     </>
   )
 }

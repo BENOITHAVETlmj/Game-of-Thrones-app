@@ -16,6 +16,6 @@ button {
   to{background-position: right}
 }
 
-button:hover {
+button:active {
   transform: scale(1.1)
 }

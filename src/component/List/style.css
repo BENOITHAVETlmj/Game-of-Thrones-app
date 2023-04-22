@@ -1,0 +1,27 @@
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  width: 80%;
+  padding: 16px;
+  margin-bottom: 8px;
+  border: 2px solid white;
+  border-radius: 6px;
+  cursor: pointer;
+  background: linear-gradient(110deg, rgba(186,148,62,1) 0%, rgba(236,172,32,1) 10%, rgba(186,148,62,1) 39%, rgba(249,244,180,1) 50%, rgba(186,148,62,1) 60%, rgba(236,172,32,1) 80%, rgba(186,148,62,1) 100%);
+ }
+
+ li:hover {
+   color: black;
+   background: white;
+   transform: scale(1.03);
+   font-weight: 700;
+ }
