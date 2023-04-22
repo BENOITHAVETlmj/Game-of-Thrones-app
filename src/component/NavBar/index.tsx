@@ -15,7 +15,7 @@ const NavBar = () => {
     <nav style={navBar}>
         {links.map((link) =>
             location.pathname !== link.url &&
-            <Link to={link.url}>
+            <Link key={link.url} to={link.url}>
               <Button key={link.url} style={navButton}>
                 {link.text}
               </Button>

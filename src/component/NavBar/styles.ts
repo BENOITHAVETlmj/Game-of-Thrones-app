@@ -1,10 +1,10 @@
 
 export const navButton = {
-   height: 55,
+   height: 35,
    width: 150,
    border: 1,
    marginRight: 20,
-   marginLeft: 20
+   marginLeft: 20,
 }
 
 export const navBar = {
@@ -12,3 +12,4 @@ export const navBar = {
    display: "flex",
    flexGap: 20
 }
+

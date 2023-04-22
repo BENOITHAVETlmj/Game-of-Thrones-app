@@ -2,7 +2,6 @@ import React from "react";
 import { Character } from "../../Validator/Character";
 import { Book } from "../../Validator/Book";
 import { Page } from "../../App";
-import { type } from "os";
 
 interface Props {
   items: Book[] | Character[];
