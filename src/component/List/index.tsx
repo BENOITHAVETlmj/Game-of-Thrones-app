@@ -5,12 +5,10 @@ interface Props {
 }
 
 const List: React.FC<Props> = ({ items }) => {
-  console.log(items);
-
   return (
     <ul>
       {items.map((item) => (
-        <li key={item}>{item?.aliases?.[0]}</li>
+        <li key={item?.aliases?.[0]}>{item?.aliases?.[0]}</li>
       ))}
     </ul>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { searchInput, searchStyle, searchButton } from "./styles";
 import './style.css';
+import Button from "../Button";
 
 interface Props {
   onSearch: (query: string) => void;
@@ -27,7 +28,7 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
         onChange={handleInputChange}
         style={searchInput}
       />
-      <button type="submit" style={searchButton} className="gold">Search</button>
+      <Button className="gold" style={searchButton}>Search</Button>
     </form>
   );
 };

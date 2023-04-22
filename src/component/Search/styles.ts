@@ -1,5 +1,5 @@
 export const searchStyle = {
-   marginTop: 50,
+   marginTop: 30,
    marginBottom: 20,
    display: 'flex',
    alignItems: "center",
