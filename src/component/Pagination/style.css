@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-Bottom: 30px
+}
+
+.container > button {
+   height: 40px;
+   width: 40px;
+   cursor: pointer;
+   border-style: none;
+   outline: none;
+   margin: 5px;
+}
+
+.button:hover {
+   background: black;
+}
+

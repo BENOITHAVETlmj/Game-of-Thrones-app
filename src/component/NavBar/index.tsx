@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 const NavBar = () => {
   const links = [
-    { text: "welcome", url: "/" },
+    { text: "Home", url: "/" },
     { text: "books", url: "/books" },
     { text: "characters", url: "/characters" }
   ];
