@@ -1,8 +1,13 @@
+import React from 'react';
 import './style.css'
 
-const BlankState = () =>
+interface Props {
+  children: React.ReactNode
+}
+
+const BlankState: React.FC<Props> = ({ children}) =>
   <ul className='blankStateUl'>
-    <li className='blankStateLi'>Could not find any resource that matches the request, try again</li>
+    <li className='blankStateLi'>{children}</li>
   </ul>
 
 

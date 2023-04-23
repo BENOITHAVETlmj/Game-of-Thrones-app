@@ -1,27 +1,18 @@
-import { useQuery } from "react-query";
-import BlankState from "../../component/BlankState";
 import SearchList from "../../component/SearchList";
 import { useState } from "react";
 import Pagination from "../../component/Pagination";
 import { Character } from "../../Validator/Character";
 import CharactersList from "./CharactersList";
+import BlankState from "../../component/BlankState";
 
 const Characters = () => {
-  const [currentPage, setCurrentPage] = useState(10);
-  console.log('currentPage',currentPage);
-
-  const { isLoading, error, data } = useQuery('characters', () => fetch(`https://anapioficeandfire.com/api/characters?page=${currentPage}&pageSize=50`).then((res) => res.json()));
-
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Could not find any resource that matches the request, try again</p>;
-  console.log('data', data);
-
-
+  const [data, setData] = useState<Character[]>([]);
   return (
   <>
     <SearchList />
-    <Pagination pageNumber={214} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
-    <CharactersList data={data} />
+    <Pagination setData={setData} />
+    {/* for some reasons even on 200 api returns emtpr array */}
+    {data.length < 1 ? <BlankState>This page seems to be empty, try an other one</BlankState> : <CharactersList data={data} />}
   </>
   )
 }
