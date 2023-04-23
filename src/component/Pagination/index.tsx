@@ -1,43 +1,66 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Button from "../Button";
 import "./style.css"
-import CharactersList from "../../Page/Characters/CharactersList";
 import { Character } from "../../Validator/Character";
 
 interface Props {
-  setData: React.Dispatch<React.SetStateAction<Character[]>>
+  setCharacters: React.Dispatch<React.SetStateAction<Character[]>>,
+  handleOnclik: (numberPage: number) => Promise<void>
 }
 
-const Pagination: React.FC<Props> = ({setData}) => {
-  const [currentPage, setCurrentPage] = useState(10);
-  const handleOnclik = async(numberPage:number) => {
-      const response = await fetch(`https://anapioficeandfire.com/api/characters?page=${numberPage}&pageSize=50`);
+const totalPages = 43;
+
+const Pagination: React.FC<Props> = ({ setCharacters, handleOnclik }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+
+  useEffect(() => {
+    async function asyncFunction() {
+      const response = await fetch(`https://anapioficeandfire.com/api/characters?page=1&pageSize=50`);
       const json = await response.json();
-      console.log(json);
-
-      await setData(json);
-  }
-  const renderButtons = () => {
-    const pageButtons = [];
-    for (let i = 1; i <= 214; i++) {
-      pageButtons.push(
-       <Button
-          key={i}
-          onClick={() => {handleOnclik(i); setCurrentPage(i)
-          }}
-          className={currentPage === i ? 'active' : ''}
-        >
-          {i}
-        </Button>
-      );
+      setCharacters(json);
     }
+     asyncFunction()
+  } ,[])
 
-    return pageButtons;
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(i);
+    }
+    return pageNumbers.map((number) => (
+      <Button
+        key={number}
+        className={number === currentPage ? 'active' : ''}
+        onClick={() => {
+          handleOnclik(number);
+          setCurrentPage(number)
+          }}
+      >
+        {number}
+      </Button>
+    ));
+  };
+
+   const handlePrevClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+      handleOnclik(currentPage - 1)
+    }
+  };
+
+   const handleNextClick = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+      handleOnclik(currentPage + 1)
+    }
   };
 
   return(
     <div className="container">
-      {renderButtons()}
+      <Button onClick={handlePrevClick} className="nextPrev">Prev</Button>
+      {renderPageNumbers()}
+      <Button onClick={handleNextClick} className="nextPrev">Next</Button>
     </div>
  )
 }

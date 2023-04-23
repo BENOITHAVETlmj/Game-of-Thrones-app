@@ -1,19 +1,27 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  margin-Bottom: 30px
+  align-items: center;
+  margin-Bottom: 30px;
+  width: 80%
 }
 
 .container > button {
-   height: 40px;
-   width: 40px;
    cursor: pointer;
    border-style: none;
    outline: none;
    margin: 5px;
 }
 
-.button:hover {
-   background: black;
+.container > button:not(.nextPrev) {
+   height: 40px;
+   width: 40px;
 }
 
+.nextPrev {
+  height: 40px;
+  width: 100px;
+  border-style: none;
+  outline: none;
+  cursor: pointer;
+}

@@ -5,18 +5,19 @@ import Button from "../Button";
 
 interface Props {
   onSearch: (query: string) => void;
+  search: string,
+  setSearch: React.Dispatch<React.SetStateAction<string>>
 }
 
-const SearchBar: React.FC<Props> = ({ onSearch }) => {
-  const [state, setState] = useState("");
+const SearchBar: React.FC<Props> = ({ onSearch, search, setSearch }) => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setState(event.target.value);
+    setSearch(event.target.value);
   };
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onSearch(state);
+    onSearch(search);
   };
 
   return (
@@ -24,7 +25,7 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
       <input
         type="text"
         placeholder="Search..."
-        value={state}
+        value={search}
         onChange={handleInputChange}
         style={searchInput}
       />
