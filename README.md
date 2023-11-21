@@ -1,4 +1,9 @@
 # Game of Thrones App :fire: :crossed_swords:
+
+Link to the app deployed on vercel domain
+
+https://game-of-thrones-app-orcin.vercel.app/
+
 Overview
 This app allows users to explore information about the Game of Thrones TV show, including books, characters, Users can watch videos related to the show using the embedded React Player, search for information using React Query, and navigate between pages using React Router.
 
