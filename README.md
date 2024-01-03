@@ -1,6 +1,6 @@
 # Game of Thrones App :fire: :crossed_swords:
 
-Link to the app deployed on vercel domain
+Link to the app deployed on vercel
 
 https://game-of-thrones-app-orcin.vercel.app/
 
