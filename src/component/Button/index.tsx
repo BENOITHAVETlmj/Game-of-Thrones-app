@@ -1,7 +1,6 @@
-import React from 'react';
-import './style.css';
-import { textButton } from './styles';
-
+import React from "react";
+import "./style.css";
+import { textButton } from "./styles";
 
 interface ButtonProps {
   onClick?: () => void;
@@ -11,7 +10,13 @@ interface ButtonProps {
   style?: any;
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, children, className, disabled, style }) => {
+const Button: React.FC<ButtonProps> = ({
+  onClick,
+  children,
+  className,
+  disabled,
+  style,
+}) => {
   return (
     <button
       className={className}
@@ -19,7 +24,7 @@ const Button: React.FC<ButtonProps> = ({ onClick, children, className, disabled,
       disabled={disabled}
       style={style}
     >
-     <div style={textButton}>{children}</div>
+      <div style={textButton}>{children}</div>
     </button>
   );
 };
