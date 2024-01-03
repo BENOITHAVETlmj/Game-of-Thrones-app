@@ -8,7 +8,7 @@ interface Props {
   handleOnclik: (numberPage: number) => Promise<void>;
 }
 
-const totalPages = 43;
+const TOTAL_PAGES = 43;
 
 const Pagination: React.FC<Props> = ({ setCharacters, handleOnclik }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -26,7 +26,7 @@ const Pagination: React.FC<Props> = ({ setCharacters, handleOnclik }) => {
 
   const renderPageNumbers = () => {
     const pageNumbers = [];
-    for (let i = 1; i <= totalPages; i++) {
+    for (let i = 1; i <= TOTAL_PAGES; i++) {
       pageNumbers.push(i);
     }
     return pageNumbers.map((number) => (
@@ -51,13 +51,11 @@ const Pagination: React.FC<Props> = ({ setCharacters, handleOnclik }) => {
   };
 
   const handleNextClick = () => {
-    if (currentPage < totalPages) {
+    if (currentPage < TOTAL_PAGES) {
       setCurrentPage(currentPage + 1);
       handleOnclik(currentPage + 1);
     }
   };
-
-  console.log({ totalPages, currentPage });
 
   return (
     <div className="container">
@@ -72,7 +70,7 @@ const Pagination: React.FC<Props> = ({ setCharacters, handleOnclik }) => {
       <Button
         onClick={handleNextClick}
         className="nextPrev"
-        disabled={currentPage > totalPages - 1}
+        disabled={currentPage > TOTAL_PAGES - 1}
       >
         Next
       </Button>
