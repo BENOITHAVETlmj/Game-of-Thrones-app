@@ -1,4 +1,4 @@
 export const textButton = {
- fontWeight: "bold",
- color: "white"
-}
+  fontWeight: "bold",
+  color: "white",
+};
